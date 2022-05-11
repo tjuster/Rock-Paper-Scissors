@@ -49,5 +49,5 @@ function playRound (playerSelection, computerSelection) {
 const playerSelection = 'rock';
 const computerString = 'rock';
 const computerSelection = computerPlay();
-console.log(`The computer selected ${computerSelection}!`)
 console.log(playRound (playerSelection, computerSelection));
+console.log(`The computer selected ${computerSelection}!`)
