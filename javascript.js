@@ -19,7 +19,7 @@ function computerPlay(computerString) {
 function playRound (playerSelection, computerSelection) {
 // Let user input 'Rock', 'Paper' or 'Scissors', case-insenstive
         playerSelection = window.prompt('Do you want to play Rock, Paper or Scissors?').toLowerCase();
-        console.log(playerSelection);
+        console.log(`You selected ${playerSelection}!`)
 // Check if it's not a draw
         if (computerSelection === 'rock' && playerSelection === 'rock') {
         return 'It\'s a draw!';
@@ -46,8 +46,8 @@ function playRound (playerSelection, computerSelection) {
         }
 }
 
-const computerString = "rock";
-const playerSelection = "rock";
+const playerSelection = 'rock';
+const computerString = 'rock';
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-console.log(computerSelection)
+console.log(`The computer selected ${computerSelection}!`)
+console.log(playRound (playerSelection, computerSelection));
