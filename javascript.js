@@ -44,7 +44,7 @@ function playRound (playerSelection, computerSelection) {
         return 'You win! Scissors beats paper!';
      // Check if they didn't input anything else
         } else {
-        return 'You didn\'t input rock, paper or scissors';
+        return 'You didn\'t input rock, paper or scissors.';
         }
 }
 
