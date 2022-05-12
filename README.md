@@ -1,1 +1,7 @@
-# Rock-Paper-Scissors
+In this project I am going to make a Rock-Paper-Scissors game that is played from the browser's console. The game consists of five rounds where the player has to manually input rock, paper or scissors each time (this is case-insensitive). The player gets one point for winning and no points for a draw. 
+
+The console will show the player's input, the winner of the round and the computer's output after each round. At the end of the five rounds, it will show how many rounds were won and lost, after that a winner or loser of the game will be declared. It's also possible to get a draw on the game, which it will show as well.
+
+What I learned in this project is how to tackle the project like a programmer, draw out the steps that the code must take in pseudo-code and then fill it in with the syntax. This helped a lot. Also, I learned how to ask questions from my peers, who were incredibly helpful and helped me solve things I would never have been able to solve myself. Of course I used Google where possible.
+
+What I should improve is, again, the Git commits. Do them more often essentially. Other than that, I should sit back more and think before I code, I'm falling for beginner's traps of trying out different code to see it if works without thinking about how to computer interprets the code. I definitely learned a lot in this project.
