@@ -1,25 +1,19 @@
 // Generate a random number between 1 and 3
-function computerPlay(computerString) {
+function computerPlay() {
    computerOutput = Math.floor(Math.random() * 3) + 1;
 // Assign 1 to 'Rock'
     if (computerOutput === 1) {
-    computerString = 'rock';
     return 'rock';
 // Assign 2 to 'Paper'
     } else if (computerOutput === 2) {
-    computerString = 'paper';
     return 'paper';
 // Assign 3 to 'Scissors'
     } else {
-    computerString = 'scissors';
     return 'scissors';
     }
 }
 
 function playRound (playerSelection, computerSelection) {
-// Let user input 'Rock', 'Paper' or 'Scissors', case-insenstive
-        playerSelection = window.prompt('Do you want to play Rock, Paper or Scissors?').toLowerCase();
-        console.log(`You selected ${playerSelection}!`)
 // Check if it's not a draw
         if (computerSelection === 'rock' && playerSelection === 'rock') {
         return 'It\'s a draw!';
@@ -46,8 +40,14 @@ function playRound (playerSelection, computerSelection) {
         }
 }
 
-const playerSelection = 'rock';
-const computerString = 'rock';
-const computerSelection = computerPlay();
-console.log(playRound (playerSelection, computerSelection));
-console.log(`The computer selected ${computerSelection}!`)
+let     playerSelection = 'rock';
+const   computerSelection = computerPlay();
+
+for (let i = 0; i < 5; i++) {
+        computerPlay();
+        playerSelection = window.prompt('Do you want to play Rock, Paper or Scissors?').toLowerCase();
+        console.log(`You selected ${playerSelection}!`);
+        playRound (playerSelection, computerSelection);
+        console.log(playRound (playerSelection, computerSelection));
+        console.log(`The computer selected ${computerSelection}!`);
+        }
