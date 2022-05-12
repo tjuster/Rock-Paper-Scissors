@@ -1,3 +1,5 @@
+alert('Welcome to Tjuster\'s Rock, Paper and Scissors game! You will play five rounds, you get one point for winning and no points for a draw. At the end a winner will be declared. You will have to enter rock, paper or scissors manually each time (case-insensitive). Check the results at the end by right-clicking the page, then Inspect > Console. Thank you for playing!')
+
 // Generate a random number between 1 and 3
 function computerPlay() {
 computerOutput = Math.floor(Math.random() * 3) + 1;
@@ -23,26 +25,26 @@ function playRound (playerSelection, computerSelection) {
         return 'It\'s a draw!';
 // Compare input to computerPlay
         } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-                gameLosses++;
-        return 'You lose! Paper beats Rock!';
+                gameLosses += 1;
+        return 'You lose! Paper beats rock!';
         } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
-                gameWins++;
-        return 'You win! Rock beats Scissors!';
+                gameWins += 1;
+        return 'You win! Rock beats scissors!';
         } else if (computerSelection === 'rock' && playerSelection === 'paper') {
-                gameWins++;
-        return 'You win! Paper beats Rock!';
+                gameWins += 1;
+        return 'You win! Paper beats rock!';
         } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-                gameLosses++;
-        return 'You lose! Scissors beats Paper!';
+                gameLosses += 1;
+        return 'You lose! Scissors beats paper!';
         } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
-                gameLosses++; 
-        return 'You lose! Rock beats Scissors!';
+                gameLosses += 1;
+        return 'You lose! Rock beats scissors!';
         } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
-                gameWins++;    
-        return 'You win! Scissors beats Paper!';
+                gameWins += 1;    
+        return 'You win! Scissors beats paper!';
      // Check if they didn't input anything else
         } else {
-        return 'You didn\'t input Rock, Paper or Scissors';
+        return 'You didn\'t input rock, paper or scissors';
         }
 }
 
@@ -55,12 +57,16 @@ let     playerSelection = 'rock';
 for (let i = 0; i < 5; i++) {
         computerPlay();
         let computerSelection = computerPlay();
-        playerSelection = window.prompt('Do you want to play Rock, Paper or Scissors?').toLowerCase();
+        playerSelection = window.prompt('Do you want to play rock, paper or scissors?').toLowerCase();
         console.log(`You selected ${playerSelection}!`);
         playRound (playerSelection, computerSelection);
         console.log(playRound (playerSelection, computerSelection));
         console.log(`The computer selected ${computerSelection}!`);
 }
+
+// Divides the gameWins and gameLosses by two
+gameWins = gameWins / 2;
+gameLosses = gameLosses / 2;
 
 // Announce how many games are won and how many games are lost
 console.log(`You won ${gameWins} rounds and lost ${gameLosses} rounds!`)
