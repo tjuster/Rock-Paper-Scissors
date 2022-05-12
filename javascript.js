@@ -1,19 +1,19 @@
 // Generate a random number between 1 and 3
 function computerPlay() {
-   computerOutput = Math.floor(Math.random() * 3) + 1;
+computerOutput = Math.floor(Math.random() * 3) + 1;
 // Assign 1 to 'Rock'
-    if (computerOutput === 1) {
-    return 'rock';
+        if (computerOutput === 1) {
+        return 'rock';
 // Assign 2 to 'Paper'
-    } else if (computerOutput === 2) {
-    return 'paper';
+        } else if (computerOutput === 2) {
+        return 'paper';
 // Assign 3 to 'Scissors'
-    } else {
-    return 'scissors';
-    }
+        } else {
+        return 'scissors';
+        }
 }
-
-function playRound (playerSelection, computerSelection, gameWins, gameLosses) {
+     
+function playRound (playerSelection, computerSelection) {
 // Check if it's not a draw
         if (computerSelection === 'rock' && playerSelection === 'rock') {
         return 'It\'s a draw!';
@@ -40,23 +40,36 @@ function playRound (playerSelection, computerSelection, gameWins, gameLosses) {
         } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
                 gameWins++;    
         return 'You win! Scissors beats Paper!';
-// Check if they didn't input anything else
+     // Check if they didn't input anything else
         } else {
         return 'You didn\'t input Rock, Paper or Scissors';
         }
 }
 
+// Define global variables
 let     gameWins = 0;
 let     gameLosses = 0;
 let     playerSelection = 'rock';
 
+// Loop 5 games
 for (let i = 0; i < 5; i++) {
         computerPlay();
         let computerSelection = computerPlay();
         playerSelection = window.prompt('Do you want to play Rock, Paper or Scissors?').toLowerCase();
         console.log(`You selected ${playerSelection}!`);
-        playRound (playerSelection, computerSelection, gameWins, gameLosses);
-        console.log(playRound (playerSelection, computerSelection, gameWins, gameLosses));
+        playRound (playerSelection, computerSelection);
+        console.log(playRound (playerSelection, computerSelection));
         console.log(`The computer selected ${computerSelection}!`);
-        }
+}
+
+// Announce how many games are won and how many games are lost
 console.log(`You won ${gameWins} rounds and lost ${gameLosses} rounds!`)
+
+// Announce a winner, loser or if it's a draw
+if (gameWins > gameLosses) {
+        console.log('Congratulations, you\'ve won the game!')
+} else if (gameLosses > gameWins) {
+        console.log('Too bad, you\'ve lost the game..')
+} else {
+        console.log('It\'s a draw, nobody won or lost the game!')
+}
