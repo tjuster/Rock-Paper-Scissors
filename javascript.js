@@ -13,7 +13,7 @@ function computerPlay() {
     }
 }
 
-function playRound (playerSelection, computerSelection) {
+function playRound (playerSelection, computerSelection, gameWins, gameLosses) {
 // Check if it's not a draw
         if (computerSelection === 'rock' && playerSelection === 'rock') {
         return 'It\'s a draw!';
@@ -23,16 +23,22 @@ function playRound (playerSelection, computerSelection) {
         return 'It\'s a draw!';
 // Compare input to computerPlay
         } else if (computerSelection === 'paper' && playerSelection === 'rock') {
+                gameLosses++;
         return 'You lose! Paper beats Rock!';
         } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
+                gameWins++;
         return 'You win! Rock beats Scissors!';
         } else if (computerSelection === 'rock' && playerSelection === 'paper') {
+                gameWins++;
         return 'You win! Paper beats Rock!';
         } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
+                gameLosses++;
         return 'You lose! Scissors beats Paper!';
         } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
+                gameLosses++; 
         return 'You lose! Rock beats Scissors!';
         } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
+                gameWins++;    
         return 'You win! Scissors beats Paper!';
 // Check if they didn't input anything else
         } else {
@@ -40,14 +46,17 @@ function playRound (playerSelection, computerSelection) {
         }
 }
 
+let     gameWins = 0;
+let     gameLosses = 0;
 let     playerSelection = 'rock';
-const   computerSelection = computerPlay();
 
 for (let i = 0; i < 5; i++) {
         computerPlay();
+        let computerSelection = computerPlay();
         playerSelection = window.prompt('Do you want to play Rock, Paper or Scissors?').toLowerCase();
         console.log(`You selected ${playerSelection}!`);
-        playRound (playerSelection, computerSelection);
-        console.log(playRound (playerSelection, computerSelection));
+        playRound (playerSelection, computerSelection, gameWins, gameLosses);
+        console.log(playRound (playerSelection, computerSelection, gameWins, gameLosses));
         console.log(`The computer selected ${computerSelection}!`);
         }
+console.log(`You won ${gameWins} rounds and lost ${gameLosses} rounds!`)
