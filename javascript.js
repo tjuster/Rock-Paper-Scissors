@@ -1,4 +1,4 @@
-alert('Welcome to Tjuster\'s Rock, Paper and Scissors game! You will play five rounds, you get one point for winning and no points for a draw. At the end a winner will be declared. You will have to enter rock, paper or scissors manually each time (case-insensitive). Check the results at the end by right-clicking the page, then Inspect > Console. Thank you for playing!')
+alert('Welcome to Tjuster\'s Rock, Paper and Scissors game! You will play five rounds, you get one point for winning and no points for a draw. At the end a winner will be declared. You will have to enter rock, paper or scissors manually each time (case-insensitive). You will get a popup with the computer\'s selection and wheter you\'ve won or lost the round, or if it was a draw. At the end a popup will appear with how many rounds you won and lost and who\'s the winner or loser of the whole game. The game can also end in a draw. Thanks for playing!')
 
 // Generate a random number between 1 and 3
 function computerPlay() {
@@ -42,7 +42,7 @@ function playRound (playerSelection, computerSelection) {
         } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
                 gameWins += 1;    
         return 'You win! Scissors beats paper!';
-     // Check if they didn't input anything else
+// Check if they didn't input anything else
         } else {
         return 'You didn\'t input rock, paper or scissors.';
         }
@@ -58,10 +58,10 @@ for (let i = 0; i < 5; i++) {
         computerPlay();
         let computerSelection = computerPlay();
         playerSelection = window.prompt('Do you want to play rock, paper or scissors?').toLowerCase();
-        console.log(`You selected ${playerSelection}!`);
+        alert(`You selected ${playerSelection}!`);
+        alert(`The computer selected ${computerSelection}!`);
         playRound (playerSelection, computerSelection);
-        console.log(playRound (playerSelection, computerSelection));
-        console.log(`The computer selected ${computerSelection}!`);
+        alert(playRound (playerSelection, computerSelection));
 }
 
 // Divides the gameWins and gameLosses by two
@@ -69,13 +69,13 @@ gameWins = gameWins / 2;
 gameLosses = gameLosses / 2;
 
 // Announce how many games are won and how many games are lost
-console.log(`You won ${gameWins} rounds and lost ${gameLosses} rounds!`)
+alert(`You won ${gameWins} rounds and lost ${gameLosses} rounds!`)
 
 // Announce a winner, loser or if it's a draw
 if (gameWins > gameLosses) {
-        console.log('Congratulations, you\'ve won the game!')
+        alert('Congratulations, you\'ve won the game!')
 } else if (gameLosses > gameWins) {
-        console.log('Too bad, you\'ve lost the game..')
+        alert('Too bad, you\'ve lost the game..')
 } else {
-        console.log('It\'s a draw, nobody won or lost the game!')
+        alert('It\'s a draw, nobody won or lost the game!')
 }
