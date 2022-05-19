@@ -14,7 +14,6 @@ computerOutput = Math.floor(Math.random() * 3) + 1;
 }
      
 function playRound (playerSelection, computerSelection) {
-        console.log(playerSelection);
 // Check if it's not a draw
         if (computerSelection === playerSelection) {
         return 'It\'s a draw!';
@@ -34,31 +33,47 @@ function playRound (playerSelection, computerSelection) {
         } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
                 gameLosses += 1;
         return 'You lose! Rock beats scissors!';
-        } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
+        } else {
                 gameWins += 1;    
         return 'You win! Scissors beats paper!';
-// Check if they didn't input anything else
-        } else {
-        return 'You didn\'t input rock, paper or scissors.';
         }
-
 }
 
-let computerSelection = computerPlay();
-let playerSelection = 'rock';
+function playerChoiceRock () {
+        computerPlay()
+        computerSelection = computerPlay();
+        playerSelection = 'rock';
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+}
+
+function playerChoicePaper () {
+        computerPlay()
+        computerSelection = computerPlay();
+        playerSelection = 'paper';
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+}
+
+function playerChoiceScissors () {
+        computerPlay()
+        computerSelection = computerPlay();
+        playerSelection = 'scissors';
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+}
+
+// Define global variables
+let     gameWins = 0;
+let     gameLosses = 0;
+let     playerSelection = 'rock';
 
 const btnRock = document.querySelector('.rock');
-btnRock.addEventListener('click', () => playRound(), {
-  playerSelection : 'rock'
-});
+btnRock.addEventListener("click", playerChoiceRock)
 
 const btnPaper = document.querySelector('.paper');
-btnPaper.addEventListener('click', () => playRound(), {
-  playerSelection : 'paper'
-});
+btnPaper.addEventListener("click", playerChoicePaper)
 
 const btnScissors = document.querySelector('.scissors');
-btnScissors.addEventListener('click', () => playRound(), {
-  playerSelection : 'scissors'
-});
+btnScissors.addEventListener("click", playerChoiceScissors)
 
