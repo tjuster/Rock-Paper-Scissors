@@ -16,6 +16,7 @@ computerOutput = Math.floor(Math.random() * 3) + 1;
 function playRound (playerSelection, computerSelection) {
 // Check if it's not a draw
         if (computerSelection === playerSelection) {
+                gameDraws += 1;
         return 'It\'s a draw!';
 // Compare input to computerPlay
         } else if (computerSelection === 'paper' && playerSelection === 'rock') {
@@ -44,7 +45,10 @@ function playerChoiceRock () {
         computerSelection = computerPlay();
         playerSelection = 'rock';
         playRound(playerSelection, computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        document.getElementById("result").innerHTML = playRound(playerSelection, computerSelection).toString();
+        document.getElementById("wins").innerHTML = (gameWins / 2).toString();
+        document.getElementById("draws").innerHTML = (gameDraws / 2).toString();
+        document.getElementById("losses").innerHTML = (gameLosses / 2).toString();
 }
 
 function playerChoicePaper () {
@@ -52,7 +56,10 @@ function playerChoicePaper () {
         computerSelection = computerPlay();
         playerSelection = 'paper';
         playRound(playerSelection, computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        document.getElementById("result").innerHTML = playRound(playerSelection, computerSelection).toString();
+        document.getElementById("wins").innerHTML = (gameWins / 2).toString();
+        document.getElementById("draws").innerHTML = (gameDraws / 2).toString();
+        document.getElementById("losses").innerHTML = (gameLosses / 2).toString();
 }
 
 function playerChoiceScissors () {
@@ -60,12 +67,17 @@ function playerChoiceScissors () {
         computerSelection = computerPlay();
         playerSelection = 'scissors';
         playRound(playerSelection, computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        document.getElementById("result").innerHTML = playRound(playerSelection, computerSelection).toString();
+        document.getElementById("wins").innerHTML = (gameWins / 2).toString();
+        document.getElementById("draws").innerHTML = (gameDraws / 2).toString();
+        document.getElementById("losses").innerHTML = (gameLosses / 2).toString();
+
 }
 
 // Define global variables
 let     gameWins = 0;
 let     gameLosses = 0;
+let     gameDraws = 0;
 let     playerSelection = 'rock';
 
 const btnRock = document.querySelector('.rock');
@@ -77,3 +89,12 @@ btnPaper.addEventListener("click", playerChoicePaper)
 const btnScissors = document.querySelector('.scissors');
 btnScissors.addEventListener("click", playerChoiceScissors)
 
+function scoreBoard() {
+if (gameWins === 5) {
+        document.getElementById("game-result").innerHTML = 'You are the winner!'.toString();
+        } else if (gameLosses === 5) {
+        document.getElementById("game-result").innerHTML = 'You are the loser'.toString();
+        } else if (gameDraws === 5) {
+        document.getElementById("game-result").innerHTML = 'The game ends in a draw'.toString();
+        }
+}
