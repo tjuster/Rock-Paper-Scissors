@@ -13,23 +13,21 @@ body {
     gap: 20px;
 }
 
-.game-result {
+.game-results {
     font-size: 36px;
+    display: flex;
+    gap: 65px;
 }
 
 .result-container {
     font-size: 36px;
-}
-
-.score-container {
-    display: flex;
-    gap: 15px;
-    font-size: 36px;
+    margin-top: 75px;
 }
 
 .btn-container {
     display: flex;
     gap: 20px;
+    margin-top: 75px;
 }
 
 button {

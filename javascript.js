@@ -40,6 +40,19 @@ function playRound (playerSelection, computerSelection) {
         }
 }
 
+function scoreBoard() {
+        if (gameWins === 10) {
+                alert('You\'ve won the game!')
+                document.location.reload(true)
+                } else if (gameLosses === 10) {
+                alert('You\'ve lost the game!')
+                document.location.reload(true)
+                } else if (gameDraws === 10) {
+                alert('The game ends in a draw!')
+                document.location.reload(true)
+                }
+        }
+
 function playerChoiceRock () {
         computerPlay()
         computerSelection = computerPlay();
@@ -49,6 +62,7 @@ function playerChoiceRock () {
         document.getElementById("wins").innerHTML = (gameWins / 2).toString();
         document.getElementById("draws").innerHTML = (gameDraws / 2).toString();
         document.getElementById("losses").innerHTML = (gameLosses / 2).toString();
+        scoreBoard();
 }
 
 function playerChoicePaper () {
@@ -60,6 +74,7 @@ function playerChoicePaper () {
         document.getElementById("wins").innerHTML = (gameWins / 2).toString();
         document.getElementById("draws").innerHTML = (gameDraws / 2).toString();
         document.getElementById("losses").innerHTML = (gameLosses / 2).toString();
+        scoreBoard();
 }
 
 function playerChoiceScissors () {
@@ -71,6 +86,7 @@ function playerChoiceScissors () {
         document.getElementById("wins").innerHTML = (gameWins / 2).toString();
         document.getElementById("draws").innerHTML = (gameDraws / 2).toString();
         document.getElementById("losses").innerHTML = (gameLosses / 2).toString();
+        scoreBoard();
 
 }
 
@@ -88,13 +104,3 @@ btnPaper.addEventListener("click", playerChoicePaper)
 
 const btnScissors = document.querySelector('.scissors');
 btnScissors.addEventListener("click", playerChoiceScissors)
-
-function scoreBoard() {
-if (gameWins === 5) {
-        document.getElementById("game-result").innerHTML = 'You are the winner!'.toString();
-        } else if (gameLosses === 5) {
-        document.getElementById("game-result").innerHTML = 'You are the loser'.toString();
-        } else if (gameDraws === 5) {
-        document.getElementById("game-result").innerHTML = 'The game ends in a draw'.toString();
-        }
-}
